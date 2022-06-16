@@ -18,7 +18,7 @@
 <script type="text/babel">
     // let ele = document.createElement("h1");
     // ele.innerText = "Hello Coder";
-   // let root = document.querySelector("#root");
+    //let root = document.querySelector("#root");
     // root.appendChild(ele);
 
 
@@ -29,18 +29,17 @@
 
 //JSX -> javascript + html
 
-function Element(){
+function Element({name="Anuj"}){
     return(
-        <h1>Hello Coder</h1>
+        <h1>Hello {name} Coder</h1>
     )
 }
-function Element1(){
+function Element1({state="Delhi"}){
     return(
         <div>
+            <Element name="Anil"/>
+            <h1>Hello Noob from {state}</h1>
             <Element/>
-            <h1>Hello Noob</h1>
-            <Element/>
-            <h1>Hello Noob</h1>
         </div>
     )
 }

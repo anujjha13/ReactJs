@@ -18,14 +18,32 @@
     class Counter extends React.Component{
         constructor(){
             super();
+            this.state = {
+                count : 0,
+            }
         }
-
+        increament = () =>{
+            this.setState({
+                count:this.state.count+1,
+            })
+        }
+        decreament = () =>{
+            this.setState({
+                count:this.state.count-1,
+            })
+        }
         render(){
             return(
-                <h1>Hello World</h1>
+                <div>
+                    <h2>{this.state.count}</h2>
+                    <button onClick={this.increament}>+</button>
+                    <button onClick={this.decreament}>-</button>
+                </div>
             )
         }
     }
+
+
     ReactDOM.render(<Counter/>,root);
     // https://reactjs.org/docs/components-and-props.html
 </script>

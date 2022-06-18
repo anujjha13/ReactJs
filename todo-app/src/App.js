@@ -1,11 +1,10 @@
 import './App.css';
 import Todo from './component/Todo.js';
 
-
 function App() {
   return (
-    <Todo/>
-   );
+   <Todo/>
+  );
 }
 
 export default App;

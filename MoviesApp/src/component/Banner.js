@@ -4,8 +4,10 @@ import {Component} from "react"
 class Banner extends Component{
     render() {
         return (
-            <div className="card">
-                <img src="https://images.squarespace-cdn.com/content/v1/5ccabcf60b77bdbb3acaf70a/1567683272122-6PF2QDD6NF68VHMGQJOC/dd5r35v-e8431f3b-2f7a-4b39-9945-fa6611506b83.jpg?format=1000w" className="card-img-top" alt="..."/>
+            <div className="card banner-card">
+                <img src="https://cdn.mos.cms.futurecdn.net/HexHbb8H3c2A9WpLBdtLHV.jpg" className="card-img-top banner-img" alt="..."/>
+                <h1 className="card-title banner-title">Spider-Man Miles Morale</h1>
+                <p className="card-text banner-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     
             </div>
         )

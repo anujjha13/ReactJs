@@ -1,5 +1,6 @@
 import NavBar from './component/NavBar';
 import Banner from './component/Banner';
+import MovieList from  './component/MovieList'
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
          <NavBar/>
          <Banner/>
+         <MovieList/>
     </div>
    
   );

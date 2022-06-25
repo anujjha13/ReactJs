@@ -32,7 +32,7 @@ class MovieList extends Component{
         })
     }
 
-    
+
     handleNext=()=>{
         this.setState({
             pArr:[...this.state.pArr,this.state.pArr.length+1],
@@ -40,6 +40,21 @@ class MovieList extends Component{
         },this.changeMovies)
     }
 
+    handlePrevious=()=>{
+        this.setState({
+            currPage:this.state.currPage-1,
+        },this.changeMovies)
+    }
+
+    handlePageClick=(ele)=>{
+        if(ele!=this.state.currPage){
+            this.setState({
+                currPage: ele
+            },this.changeMovies);
+        }
+    }
+
+    
     render(){
         // let moviesArr = movies.results
         return(
@@ -62,9 +77,9 @@ class MovieList extends Component{
             <div style={{display:"flex",justifyContent:"center"}}>
                 <nav aria-label="Page navigation example">
                     <ul className="pagination">
-                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+                        <li className="page-item"><button className="page-link" onClick={this.handlePrevious}>Previous</button></li>
                         {this.state.pArr.map((ele)=>(
-                            <li className="page-item"><a className="page-link" href="#">{ele}</a></li>
+                            <li className="page-item" ><button className="page-link" onClick={()=>this.handlePageClick(ele)}  >{ele}</button></li>
                         ))}
                         
                         <li className="page-item"><button className="page-link" onClick={this.handleNext}>Next</button></li>

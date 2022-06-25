@@ -1,6 +1,7 @@
 import NavBar from './component/NavBar';
 import Banner from './component/Banner';
 import MovieList from  './component/MovieList'
+import Fav from './component/Fav'
 import './App.css';
 
 function App() {
@@ -8,8 +9,9 @@ function App() {
 
     <div>
          <NavBar/>
-         <Banner/>
-         <MovieList/>
+         {/* <Banner/>
+         <MovieList/> */}
+         <Fav/>
     </div>
    
   );

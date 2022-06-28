@@ -34,16 +34,24 @@ class MovieList extends Component{
 
 
     handleNext=()=>{
-        this.setState({
-            pArr:[...this.state.pArr,this.state.pArr.length+1],
-            currPage:this.state.currPage+1
-        },this.changeMovies)
+        if(this.state.currPage==this.state.pArr.length){
+            this.setState({
+            
+                    pArr:[...this.state.pArr,this.state.pArr.length+1],
+                    currPage:this.state.currPage+1
+            
+            },this.changeMovies)
+
+        }
     }
 
     handlePrevious=()=>{
-        this.setState({
-            currPage:this.state.currPage-1,
-        },this.changeMovies)
+        if(this.state.currPage!=1){   //edgecase when currpage=1 not able to do previous calls
+            this.setState({
+                currPage:this.state.currPage-1,
+            },this.changeMovies)
+        }
+        
     }
 
     handlePageClick=(ele)=>{

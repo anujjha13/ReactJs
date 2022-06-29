@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { movies } from "../movieData";
 
+
 class Fav extends Component {
 
     

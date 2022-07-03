@@ -78,6 +78,32 @@ class Fav extends Component {
         }
     }
 
+    sortpopulairtydesc = ()=>{
+        let temp=this.state.movies.map((movieObj)=>movieObj);
+
+        temp.sort(function(obja,objb){
+            return objb.popularity-obja.popularity;
+        })
+
+        this.setState({
+            movies:[...temp],
+            movies2:[...temp],
+        })
+    }
+
+    sortpopulairtyinc = ()=>{
+        let temp=this.state.movies.map((movieObj)=>movieObj);
+
+        temp.sort(function(obja,objb){
+            return obja.popularity-objb.popularity;
+        })
+
+        this.setState({
+            movies:[...temp],
+            movies2:[...temp],
+        })
+    }
+
     render() {
         let genreIds = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music", 9648: "Mystery", 10749: "Romance", 878: "Science Fiction", 10770: "TV Movie", 53: "Thriller", 10752: "War", 37: "Western"}
         return (
@@ -106,7 +132,11 @@ class Fav extends Component {
                                 <tr>
                                     <th scope="col">Title</th>
                                     <th scope="col">Genre</th>
-                                    <th scope="col">Popularity</th>
+                                    <th scope="col">
+                                    <i class="fa fa-sort-up" onClick={this.sortpopulairtydesc}></i>
+                                    Popularity
+                                    <i class="fa fa-sort-down"  onClick={this.sortpopulairtyinc}></i>
+                                    </th>
                                     <th scope="col">Rating</th>
                                     <th scope="col">Delete</th>
                                 </tr>

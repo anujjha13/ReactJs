@@ -1,29 +1,22 @@
-import {useState} from "react"
-import {auth} from "../firebase"
-import {createUserWithEmailAndPassword} from "firebase/auth"
+import {useState} from "react" //first step
+import {auth} from "../firebase" //first step
+import {createUserWithEmailAndPassword} from "firebase/auth"//second step for creating user using auth and this function
 import {addDoc,collection} from "firebase/firestore"  //for creating database
 import {db} from "../firebase"
 function Signup(){
 
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const [name,setName] = useState("");
-    const[loader,setLoader] = useState(false);
-    const[error,setError] = useState("");
-    const[user,setUser] = useState("");
+    const [email,setEmail] = useState("");  //first step
+    const [password,setPassword] = useState("");//first step
+    const [name,setName] = useState("");//first step
+    const[loader,setLoader] = useState(false);  //second and logical step we require loader state while it is checking user is logged in or not
+    const[error,setError] = useState(""); //second and logical step (if after filling details some error caused while creating new user)
+    const[user,setUser] = useState(""); //second and logical step (to check if you are logged in or not)
 
 
     async function processSignup(){
        try{
-            let userCred = await createUserWithEmailAndPassword(auth,email,password)
-            const docRef = await addDoc(collection(db,"users"),{
-                //"email":email,
-                email,
-                name,
-                reelsIds:[],
-                profileImgUrl:"",
-                userId:userCred.user.uid
-            });
+            let userCred = await createUserWithEmailAndPassword(auth,email,password)  //function used for creating the user
+           
             setLoader(true);
             
             // console.log(userCred.user);
@@ -78,8 +71,8 @@ function Signup(){
                                     </div>
                                 </div>
                                 <div class="panel register flex justify-content-center">
-                                    <p>Don't you have an account?</p>
-                                    <a href="#">Sign-Up</a>
+                                    <p>Already have an account?</p>
+                                    <a href="#">Log-In here</a>
                                 </div>
                                 
                             </section>

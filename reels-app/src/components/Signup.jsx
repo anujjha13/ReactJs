@@ -44,7 +44,7 @@ function Signup(){
     let cUser = useContext(AuthContext);
     return(
         <>
-            {cUser!=null?window.location= "./profile"  :
+            {
             error!=""?<h1>Error is {error}</h1>:
             loader == true?<h1>...Loading</h1>:
                 user!=""? <><h1>Sign up User is {user.uid}</h1> </>:

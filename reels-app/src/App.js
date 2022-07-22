@@ -6,7 +6,6 @@ import PageNotFound from './components/PageNotFound';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import {Switch,Route,Redirect} from "react-router-dom"
-import Footer from './components/Footer';
 import { AuthContext, AuthContextProvider } from './context/AuthContext';
 
 import { useContext } from 'react'; //for private route
@@ -21,17 +20,21 @@ function App() {
         <Feed></Feed>
       </Route> */}
 
-      <Route path="/login">
+
+    <PrivRouteFeed path='/login' comp={Login}></PrivRouteFeed>
+      {/* <Route path="/login">
         <Login></Login>
-      </Route>
+      </Route> */}
 
-      <Route path="/signup">
+
+    <PrivRouteFeed path='/signup' comp={Signup}></PrivRouteFeed>
+      {/* <Route path="/signup">
         <Signup></Signup>
-      </Route>
+      </Route> */}
 
-      <PrivateRoute path='/profile' comp={Profile}></PrivateRoute>
+    <PrivateRoute path='/profile' comp={Profile}></PrivateRoute>
 
-      
+    <Redirect from='/' to='/feed' ></Redirect>
       {/* <Route path="/profile">
         <Profile></Profile>
       </Route> */}
@@ -58,6 +61,21 @@ function PrivateRoute(props){
     render = {
       (props)=>{
         return cUser!=null ?<Component {...props}></Component>:<Redirect {...props} to="/login"></Redirect>
+      }
+    }
+    ></Route>
+  )
+}
+function PrivRouteFeed(props){
+  let Component  = props.comp;
+  let cUser = useContext(AuthContext);
+  return(
+    <Route 
+    {...props}
+    render = {
+      (props)=>{
+        return cUser!=null ?<Redirect {...props} to="/feed"></Redirect>:
+        <Component {...props}></Component>
       }
     }
     ></Route>

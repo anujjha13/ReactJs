@@ -5,6 +5,7 @@ import {setDoc,doc} from "firebase/firestore"  //for creating database
 import Footer from "./Footer"
 import {useContext} from "react"
 import {AuthContext} from "../context/AuthContext"
+
 function Signup(){
 
     const [email,setEmail] = useState("");  //first step
@@ -45,7 +46,9 @@ function Signup(){
         <>
             {
             error!=""?<h1>Error is {error}</h1>:
-            loader == true?<h1>...Loading</h1>:
+            loader == true?<div class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>:
                 user!=""? <><h1>Sign up User is {user.uid}</h1> </>:
 
                 <>
@@ -57,7 +60,10 @@ function Signup(){
                                     <h1 title="Instagram" class="flex justify-content-center">
                                         <img src="./logo.svg" alt="Instagram logo" title="Instagram logo" />
                                     </h1>
-                                    <h2 class="flex justify-content-center">#INSTAREELS</h2>
+                                    <div className="header">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBvvRY2qdk21cCDqMgUYXHfcA4T5vaDKSDA&usqp=CAU"
+                                        className="insta_img"></img>
+                                    </div>
                                     <form>
 
                                         <input type="text" onChange={(e)=>{setName(e.target.value)}} value={name} placeholder="Full Name"></input><br></br>

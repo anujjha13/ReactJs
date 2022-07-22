@@ -4,6 +4,7 @@ import {signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase
 import './Login.css';
 import { useEffect } from "react"  //for use coomponent update
 import Footer from "./Footer"
+
 function Login(){
 
     const [email, setEmail] = useState("");
@@ -57,12 +58,11 @@ function Login(){
         <>
             {/* we are require to use mainloader bcz while checking on mount it will take time and during time it is howing form as well after verifying it removes form and show logged in */}
             {error != "" ? <h1> {error}</h1>:
-             loader == true?<h1>...Loading</h1>:
+             loader == true?<div class="spinner-border text-success" role="status">
+             <span class="sr-only">Loading...</span>
+           </div>:
                 user != null ? <><h1>User is {user.uid}</h1> <button type="click" onClick={logOut}>Logout</button> </>: 
                 <>
-
-
-        
                 <main class="flex align-items-center justify-content-center">
                         <section id="mobile" class="flex">
                         </section>
@@ -71,7 +71,10 @@ function Login(){
                                 <h1 title="Instagram" class="flex justify-content-center">
                                     <img src="./logo.svg" alt="Instagram logo" title="Instagram logo" />
                                 </h1>
-                                <h2 class="flex justify-content-center">#INSTAREELS</h2>
+                                <div className="header">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBvvRY2qdk21cCDqMgUYXHfcA4T5vaDKSDA&usqp=CAU"
+                                    className="insta_img"></img>
+                                </div>
                                 <form>
                                     <label for="email" class="sr-only">Telefone, nome de usuário ou e-mail</label>
                                     <input type="email" onChange={trackemail} placeholder="Enter email"/>

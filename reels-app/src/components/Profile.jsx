@@ -2,8 +2,31 @@ import Footer from "./Footer"
 import './Profile.css'
 import {useContext} from "react"
 import {AuthContext} from "../context/AuthContext"
+import { useEffect ,useState} from "react"
+import { getDoc ,doc } from "firebase/firestore"
+import { db } from "../firebase"
 function Profile(){
     let cUser = useContext(AuthContext);
+    let [loading,setLoading] = useState("")
+
+    //fetch data from db using docsnapand doc ref
+    useEffect(function fn(){
+        (async function(){
+            if(cUser){
+                //read from dabase
+                const docRef = doc(db,"users",cUser.uid);
+                const docSnap = await getDoc(docRef);
+                console.log("Document Data: ",docSnap)
+                if(docSnap.exists()){
+                    console.log(docSnap.data());
+                }else{
+                    console.log("No data")
+                }
+            }
+        })()
+    },[cUser])
+
+
     return ( 
 
         

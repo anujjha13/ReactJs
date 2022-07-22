@@ -1,7 +1,7 @@
 import {useState} from "react" //first step
 import {auth,db} from "../firebase" //first step
 import {createUserWithEmailAndPassword} from "firebase/auth"//second step for creating user using auth and this function
-import {addDoc,collection} from "firebase/firestore"  //for creating database
+import {setDoc,doc} from "firebase/firestore"  //for creating database
 import Footer from "./Footer"
 import {useContext} from "react"
 import {AuthContext} from "../context/AuthContext"
@@ -21,14 +21,13 @@ function Signup(){
             let userCred = await createUserWithEmailAndPassword(auth,email,password)  //function used for creating the user
            //now we usee firestore for creating db and use addDocccollection for that
 
-           const docRef = await addDoc(collection(db,"users"),{
-            //"email":email,
-                    email, //yha ya to hum keyvalue pair dete since yha hmara email name ka hi key h and usko email state as a value bhejni h to ek baar likhenge tab bhi chlagea
-                    name,
-                    reelsIds:[],
-                    profileImgUrl:"",
-                    userId:userCred.user.uid
-            });
+           await setDoc(doc(db, "users", userCred.user.uid), {
+            email,
+            name,
+            reelsIds:[],
+            profileImgUrl:"",
+            userId:userCred.user.uid
+          });
             
             
             // console.log(userCred.user);

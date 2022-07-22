@@ -3,6 +3,7 @@ import {auth} from "../firebase"
 import {signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";  //onauth added for remain logeed in
 import './Login.css';
 import { useEffect } from "react"  //for use coomponent update
+import Footer from "./Footer"
 function Login(){
 
     const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ function Login(){
     const [error, setError] = useState("");
     const [loader, setLoader] = useState(false);
     const [user,setUser] = useState(null);
-    const [mainLoader,setMainLoader] = useState(true);  //TO REMAIN LOGED IN THERE IS SHOWING FORM AS WELL FOR THAT WE USE ONE LOADER MORE
+    // const [mainLoader,setMainLoader] = useState(true);  (ab remove krdo as we manage it through context)//TO REMAIN LOGED IN THERE IS SHOWING FORM AS WELL FOR THAT WE USE ONE LOADER MORE
 
     const trackemail =function(ele){
         setEmail(ele.target.value);
@@ -49,18 +50,19 @@ function Login(){
             } else {
               setUser(null);
             }
-            setMainLoader(false);
+            
         })
     },[]) //why to pass [] because we want it to work only on mount 
     return (
         <>
             {/* we are require to use mainloader bcz while checking on mount it will take time and during time it is howing form as well after verifying it removes form and show logged in */}
-            {mainLoader == true?<h1>Page is Loading..</h1>:
-            error != "" ? <h1> {error}</h1>:
+            {error != "" ? <h1> {error}</h1>:
              loader == true?<h1>...Loading</h1>:
                 user != null ? <><h1>User is {user.uid}</h1> <button type="click" onClick={logOut}>Logout</button> </>: 
                 <>
 
+
+        
                 <main class="flex align-items-center justify-content-center">
                         <section id="mobile" class="flex">
                         </section>
@@ -99,6 +101,8 @@ function Login(){
                             
                         </section>
                     </main>
+                    <Footer></Footer>
+
      </> }
         </>
     )

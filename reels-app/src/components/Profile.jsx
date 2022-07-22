@@ -1,11 +1,15 @@
-
+import Footer from "./Footer"
 import './Profile.css'
+import {useContext} from "react"
+import {AuthContext} from "../context/AuthContext"
 function Profile(){
+    let cUser = useContext(AuthContext);
     return ( 
 
+        
         <>
-
-
+                {cUser==null ? <div>Need TO Login</div>:
+                <>
                 <main class="flex align-items-center justify-content-center">
                             <section id="mobile" class="flex">
                             </section>
@@ -29,6 +33,10 @@ function Profile(){
                                 
                             </section>
                         </main>
+                        
+
+                        <Footer></Footer>
+                        </>}
        {/*<div className="header"></div>
         <div className="main">
             <div className="pimg_container">

@@ -1,0 +1,48 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+}
+
+
+.main{
+    display: flex;
+    height: calc(100vh-10rem);
+    align-items: center;
+    justify-content: space-evenly;
+    width: 345px;
+}
+
+h1>img{
+    width: 30px;
+    margin-top: -12px;
+}
+.pimg_container{
+
+}
+
+.pimg{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+
+.details{
+    margin-top: 1rem;
+    display: flex;
+}
+
+.content{
+    line-height: 1.5;
+    font-size: 20px;
+    color: grey;
+}
+
+.bold_text{
+    font-weight: bold;
+    color:black
+}
+
+.main>*{
+    height: 80%;
+    width: 40%;
+}

@@ -43,6 +43,7 @@
 footer {
   margin: 0 auto 20px auto;
   max-width: 935px;
+  margin-bottom: 3rem;
 }
 footer ul { margin-bottom: 20px; }
 footer ul li { margin: 0 10px 10px; } 

@@ -4,7 +4,7 @@ import '../App.css';
 function Footer(){
     return (
         <>
-            <footer>
+            <footer >
                 <ul class="flex flex-wrap justify-content-center">
                     <li><a href="#">META</a></li>
                     <li><a href="#">ABOUT</a></li>

@@ -68,7 +68,7 @@ function Signup(){
                                     </form>
                                     <div class="flex separator align-items-center">
                                         <span></span>
-                                        <div class="or">OU</div>
+                                        <div class="or">OR</div>
                                         <span></span>
                                     </div>
                                     <div class="login-with-fb flex direction-column align-items-center">
@@ -81,7 +81,7 @@ function Signup(){
                                 </div>
                                 <div class="panel register flex justify-content-center">
                                     <p>Already have an account?</p>
-                                    <a href="#">Log-In here</a>
+                                    <a href="./Login">Log-In here</a>
                                 </div>
                                 
                             </section>
